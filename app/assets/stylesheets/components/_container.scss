@@ -42,3 +42,22 @@
 .container-details {
   padding-bottom: 30px;
 }
+
+.container_small {
+  width: 300px;
+  margin: 100px auto;
+  label{
+    font-weight: bold;
+
+    color: rgb(81, 81, 81);
+  }
+  .btn {
+    color: rgb(81, 81, 81);
+    font-weight: bold;
+    background-color: white;
+    margin-bottom: 16px;
+  }
+ a {
+  color: rgb(81, 81, 81);
+ }
+}
