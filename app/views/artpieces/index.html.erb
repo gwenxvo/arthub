@@ -9,3 +9,12 @@
     </li>
   <% end %>
 </ul>
+
+
+<%= simple_form_for(@artpiece) do |f| %>
+  <%= f.input :title %>
+  <%= f.input :artist %>
+  <%= f.input :description %>
+  <%= f.input :day_price %>
+  <%= f.submit %>
+<% end %>
