@@ -10,7 +10,7 @@ puts 'Cleaning database..'
 Artpiece.destroy_all
 
 puts 'Adding movies..'
-Artpiece.create(title: "Water Lillies", description: "Huge painting, 300cm x 180cm", artist: "Claude Monet", day_price: 75)
+@artpiece = Artpiece.new(title: "Water Lillies", description: "Huge painting, 300cm x 180cm", artist: "Claude Monet", day_price: 75)
 Artpiece.create(title: "Starry Night", description: "Classic artpiece, 120cm x 70cm", artist: "Vincent van Gogh", day_price: 122)
 
 puts 'Finished..'
