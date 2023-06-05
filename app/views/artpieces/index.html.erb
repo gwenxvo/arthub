@@ -1,0 +1,20 @@
+<h1>All Artpieces</h1>
+
+<ul>
+  <% @artpieces.each do |artpiece| %>
+    <li><%= link_to artpiece.title, artpiece_path(artpiece) %>
+      <p><%= artpiece.description %></p>
+      <p><%= artpiece.artist %></p>
+      <p><%= artpiece.day_price %></p>
+    </li>
+  <% end %>
+</ul>
+
+
+<%= simple_form_for(@artpiece) do |f| %>
+  <%= f.input :title %>
+  <%= f.input :artist %>
+  <%= f.input :description %>
+  <%= f.input :day_price %>
+  <%= f.submit %>
+<% end %>
