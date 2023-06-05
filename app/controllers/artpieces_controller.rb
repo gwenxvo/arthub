@@ -1,11 +1,12 @@
 class ArtpiecesController < ApplicationController
+  before_action :set_artpiece, only: %i[show edit update]
 
   def index
     @artpieces = Artpiece.all
+    @artpiece = Artpiece.new
   end
 
   def show
-    @artpiece = Artpiece.find(params[:id])
   end
 
   def new
@@ -22,11 +23,9 @@ class ArtpiecesController < ApplicationController
   end
 
   def edit
-    @artpiece = Artpiece.find(params[:id])
   end
 
   def update
-    @artpiece = Artpiece.find(params[:id])
     if @artpiece.update(artpiece_params)
       redirect_to artpiece_path(@artpiece)
     else
@@ -38,5 +37,9 @@ class ArtpiecesController < ApplicationController
 
   def artpiece_params
     params.require(:artpiece).permit(:title, :artist, :description, :day_price)
+  end
+
+  def set_artpiece
+    @artpiece = Artpiece.find(params[:id])
   end
 end
