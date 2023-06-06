@@ -1,23 +1,34 @@
 <div class="container">
   <div class="container-photo-info">
     <div class="container-photo">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/a/aa/Claude_Monet_-_Water_Lilies_-_1906%2C_Ryerson.jpg" alt="">
+      <%= cl_image_tag @artpiece.photos.first.key, class: "gallery-main" %>
+        <div class="gallery">
+          <i class="fa-solid fa-chevron-left"></i>
+          <% @artpiece.photos[1..].each do |photo| %>
+              <%= cl_image_tag photo.key, class: "gallery-item" %>
+          <% end %>
+          <i class="fa-solid fa-chevron-right"></i>
+        </div>
     </div>
 
     <div>
       <div class="container-details">
         <h1><strong><%= @artpiece.title %></strong></h1>
 
-        <p><strong><%= @artpiece.artist %></strong> · €<%= @artpiece.day_price %>/day</p>
+        <% if @artpiece.artist.present? %>
+          <p><strong><%= @artpiece.artist %></strong>
+        <% else %>
+          Unknown
+        <% end %>
+          · €<%= @artpiece.day_price %>/day</p>
         <p><%= @artpiece.description %></p>
       </div>
 
       <div class="container-booking">
         <h4><strong><%= @artpiece.day_price %> € per day</strong></h4>
         <%= simple_form_for([@artpiece, @booking]) do |f| %>
-          <%= f.input :start_date %>
-          <%= f.input :end_date %>
-
+          <%= f.input :start_date, as: :string, input_html: {class: "datepicker"} %>
+          <%= f.input :end_date, as: :string, input_html: {class: "datepicker"} %>
           <%= f.submit class: "btn btn-primary" %>
         <% end %>
       </div>

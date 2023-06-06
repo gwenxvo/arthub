@@ -1,22 +1,24 @@
 class BookingsController < ApplicationController
+  before_action :set_artpiece
 
   def create
-    initialize_booking
-    # Need to access artpiece id -- params[artpiece_id]
-    # Need to access user id
+    @booking = @artpiece.bookings.new(booking_params)
+    @booking.user = current_user
 
-    @booking.save
-    redirect_to dashboard_path
+    if @booking.save
+      redirect_to artpiece_path(@artpiece)
+    else
+      render "artpieces/show"
+    end
   end
 
   private
 
-  def initialize_booking
-    @booking = Booking.new(booking_params)
+  def set_artpiece
+    @artpiece = Artpiece.find(params[:artpiece_id])
   end
 
   def booking_params
-    params.require(:booking).permit(:start_date, :end_date, :booking_status, :user_id, :artpiece_id)
+    params.require(:booking).permit(:start_date, :end_date)
   end
-
 end
