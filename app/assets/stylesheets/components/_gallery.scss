@@ -1,0 +1,31 @@
+.gallery {
+  width: 90%;
+  display: grid;
+  grid-template-columns: 1fr 3fr 3fr 3fr 1fr;
+  grid-gap: 10px;
+  border: 1px solid $beige;
+  margin-top: 20px;
+
+  .gallery-item {
+    width: 100%;
+    padding: 20px 0px;
+  }
+
+  .fa-chevron-left {
+    height: 100%;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 50px;
+    color: $beige;
+  }
+
+  .fa-chevron-right {
+    height: 100%;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 50px;
+    color: $beige;
+  }
+}
