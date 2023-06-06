@@ -19,7 +19,7 @@ file2 = URI.open("https://upload.wikimedia.org/wikipedia/commons/a/aa/Claude_Mon
 file3 = URI.open("https://uploads3.wikiart.org/images/claude-monet/water-lilies-1919-1.jpg!Large.jpg")
 file4 = URI.open("https://i.otto.de/i/otto/0d117688-5138-51e3-92f0-8a6d28e0a910?h=520&w=551&sm=clamp")
 
-@artpiece1 = Artpiece.new(title: "Water Lillies", description: "Huge painting, 300cm x 180cm", artist: "Claude Monet", day_price: 75, user: User.last)
+@artpiece1 = Artpiece.new(title: "Water Lillies", description: "Water Lilies is a series of approximately 250 oil paintings, 300cm x 180cm", artist: "Claude Monet", day_price: 545, user: User.last)
 @artpiece1.photos.attach(io: file1, filename: "Water-lillies.png", content_type: "image/png")
 @artpiece1.photos.attach(io: file2, filename: "Water-lillies-2.png", content_type: "image/png")
 @artpiece1.photos.attach(io: file3, filename: "Water-lillies-3.png", content_type: "image/png")
@@ -31,7 +31,7 @@ file6 = URI.open("https://cdn.kastatic.org/ka-perseus-images/b6e662b4efcd6c53bf8
 file7 = URI.open("https://i.ytimg.com/vi/CABaUQml-gg/maxresdefault.jpg")
 file8 = URI.open("https://cdn.shopify.com/s/files/1/0551/9248/5940/products/im0101vorschau1-1.jpg?v=1647296852")
 
-@artpiece2 = Artpiece.new(title: "Starry Night", description: "Classic artpiece, 120cm x 70cm", artist: "Vincent van Gogh", day_price: 122, user: User.first)
+@artpiece2 = Artpiece.new(title: "Starry Night", description: "Post impressionism/early expressionism with oil paints on canvas, 73,7cm × 92,1cm", artist: "Vincent van Gogh", day_price: 620, user: User.first)
 @artpiece2.photos.attach(io: file5, filename: "Starry-night.png", content_type: "image/png")
 @artpiece2.photos.attach(io: file6, filename: "Starry-night-2.png", content_type: "image/png")
 @artpiece2.photos.attach(io: file7, filename: "Starry-night-3.png", content_type: "image/png")
@@ -43,11 +43,35 @@ file10 = URI.open("https://www.portraitflip.com/wp-content/uploads/2023/03/compo
 file11 = URI.open("https://www.megagraficsrl.it/620-thickbox_default/bild-kandinsky-composition-viii-wassily-kandinsky-composition-8.jpg")
 file12 = URI.open("https://media-cdn.tripadvisor.com/media/photo-s/0f/4d/df/bb/kandinsky-composition.jpg")
 
-@artpiece3 = Artpiece.new(title: "Composition 8", description: "Classic artpiece, 120cm x 70cm", artist: "Vincent van Gogh", day_price: 122, user: User.first)
+@artpiece3 = Artpiece.new(title: "Composition 8", description: "Classic artpiece from 1923 when the artist was a teacher at the Weimar Bauhaus, 120cm x 70cm", artist: "Wassily Kandinsky", day_price: 430, user: User.first)
 @artpiece3.photos.attach(io: file9, filename: "Composition-8.png", content_type: "image/png")
 @artpiece3.photos.attach(io: file10, filename: "Composition-8-2.png", content_type: "image/png")
 @artpiece3.photos.attach(io: file11, filename: "Composition-8-3.png", content_type: "image/png")
 @artpiece3.photos.attach(io: file12, filename: "Composition-8-4.png", content_type: "image/png")
 @artpiece3.save
+
+file13 = URI.open("https://www.weltkunst.de/wp-content/uploads/2023/03/Picasso_Werk_Buste_d_77435688-1282x1627.jpg")
+file14 = URI.open("https://assets.deutschlandfunk.de/9f40c6b1-32df-4061-90c6-9dd0e72c8f6e/1920x1080.jpg?t=1685940464832")
+file15 = URI.open("https://images.bild.de/647e29bd96ee545e65f6710b/382bc658f6499e37541e81b8e3c84412,14a13800?w=992")
+file16 = URI.open("https://m.faz.net/media0/ppmedia/aktuell/2874066507/1.8774502/mmobject-still_full/taxiert-auf-bis-zu-2-5.jpg")
+
+@artpiece4 = Artpiece.new(title: "Buste de femme", description: "Painting that shows the second wife of the artist. Was just sold for 3.4M EUR, 320cm x 200cm", artist: "Pablo Picasso", day_price: 2300, user: User.first)
+@artpiece4.photos.attach(io: file13, filename: "Buste-de-femme.png", content_type: "image/png")
+@artpiece4.photos.attach(io: file14, filename: "Buste-de-femme-2.png", content_type: "image/png")
+@artpiece4.photos.attach(io: file15, filename: "Buste-de-femme-3.png", content_type: "image/png")
+@artpiece4.photos.attach(io: file16, filename: "Buste-de-femme-4.png", content_type: "image/png")
+@artpiece4.save
+
+file17 = URI.open("https://res.cloudinary.com/dkdtzggtc/image/upload/v1686084378/IMG_2491_api6uq.jpg")
+file18 = URI.open("https://res.cloudinary.com/dkdtzggtc/image/upload/v1686084383/IMG_2494_rwkus5.jpg")
+file19 = URI.open("https://res.cloudinary.com/dkdtzggtc/image/upload/v1686084377/IMG_2492_nlssln.jpg")
+file20 = URI.open("https://res.cloudinary.com/dkdtzggtc/image/upload/v1686084385/IMG_2493_ucslaz.jpg")
+
+@artpiece5 = Artpiece.new(title: "Humankind vs. Nature", description: "Action painting depicting the diminishing nature being threatened by humankind, 150cm x 70cm", artist: "MV", day_price: 390, user: User.last)
+@artpiece5.photos.attach(io: file17, filename: "Humandkind-vs-nature.png", content_type: "image/png")
+@artpiece5.photos.attach(io: file18, filename: "Humandkind-vs-nature-2.png", content_type: "image/png")
+@artpiece5.photos.attach(io: file19, filename: "Humandkind-vs-nature-3.png", content_type: "image/png")
+@artpiece5.photos.attach(io: file20, filename: "Humandkind-vs-nature-4.png", content_type: "image/png")
+@artpiece5.save
 
 puts 'Finished..'
