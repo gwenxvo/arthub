@@ -1,20 +1,31 @@
 <h1>All Artpieces</h1>
+<div class="container">
+  <div class="row">
+      <% @artpieces.each do |artpiece| %>
+        <div class="col-lg-3 col-sm-12 col-md-4 d-flex align-items-stretch">
+          <div class="card mb-2">
+            <img class="card-img" src="https://upload.wikimedia.org/wikipedia/commons/a/aa/Claude_Monet_-_Water_Lilies_-_1906%2C_Ryerson.jpg">
+            <div class="card-body pb-0">
+                <p class="card-title"><%= link_to artpiece.title, artpiece_path(artpiece) %></p>
+                <div class="card-text">
+                  <ul class="list-unstyled">
+                    <li><%= artpiece.description %></li>
+                    <li><%= artpiece.artist %></li>
+                    <li class="">$<%= artpiece.day_price %></li>
+                  </ul>
+                </div>
+            </div>
+          </div>
+        </div>
+      <% end %>
+  </div>
 
-<ul>
-  <% @artpieces.each do |artpiece| %>
-    <li><%= link_to artpiece.title, artpiece_path(artpiece) %>
-      <p><%= artpiece.description %></p>
-      <p><%= artpiece.artist %></p>
-      <p><%= artpiece.day_price %></p>
-    </li>
+
+  <%= simple_form_for(@artpiece) do |f| %>
+    <%= f.input :title %>
+    <%= f.input :artist %>
+    <%= f.input :description %>
+    <%= f.input :day_price %>
+    <%= f.submit %>
   <% end %>
-</ul>
-
-
-<%= simple_form_for(@artpiece) do |f| %>
-  <%= f.input :title %>
-  <%= f.input :artist %>
-  <%= f.input :description %>
-  <%= f.input :day_price %>
-  <%= f.submit %>
-<% end %>
+</div>
