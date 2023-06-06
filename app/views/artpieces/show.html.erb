@@ -1,8 +1,32 @@
-<h1><%= @artpiece.title %></h1>
+<div class="container">
+  <div class="container-photo-info">
+    <div class="container-photo">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/a/aa/Claude_Monet_-_Water_Lilies_-_1906%2C_Ryerson.jpg" alt="">
+    </div>
 
-<p><%= @artpiece.description %></p>
-<p><%= @artpiece.artist %></p>
-<p><%= @artpiece.day_price %></p>
+    <div>
+      <div class="container-details">
+        <h1><strong><%= @artpiece.title %></strong></h1>
+
+        <p><strong><%= @artpiece.artist %></strong> · €<%= @artpiece.day_price %>/day</p>
+        <p><%= @artpiece.description %></p>
+      </div>
+
+      <div class="container-booking">
+        <h4><strong><%= @artpiece.day_price %> € per day</strong></h4>
+        <%= simple_form_for(@artpiece) do |f| %>
+          <%= f.input :title %>
+          <%= f.input :artist %>
+          <%= f.input :description %>
+          <%= f.input :day_price %>
+          <%= f.submit class: "btn btn-primary" %>
+        <% end %>
+      </div>
+
+    </div>
+  </div>
 
 
-<%= link_to 'Back', artpieces_path %>
+
+  <%= link_to 'Back', artpieces_path %>
+</div>
