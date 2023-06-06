@@ -1,24 +1,31 @@
 <div class="container">
   <div class="container-photo-info">
     <div class="container-photo">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/a/aa/Claude_Monet_-_Water_Lilies_-_1906%2C_Ryerson.jpg" alt="">
+      <% @artpiece.photos.each do |photo| %>
+        <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fit %>
+      <% end %>
     </div>
 
     <div>
       <div class="container-details">
         <h1><strong><%= @artpiece.title %></strong></h1>
 
-        <p><strong><%= @artpiece.artist %></strong> · €<%= @artpiece.day_price %>/day</p>
+        <% if @artpiece.artist.present? %>
+          <p><strong><%= @artpiece.artist %></strong>
+        <% else %>
+          Unknown
+        <% end %>
+          · €<%= @artpiece.day_price %>/day</p>
         <p><%= @artpiece.description %></p>
       </div>
 
       <div class="container-booking">
         <h4><strong><%= @artpiece.day_price %> € per day</strong></h4>
-        <%= simple_form_for(@artpiece) do |f| %>
-          <%= f.input :title %>
-          <%= f.input :artist %>
-          <%= f.input :description %>
-          <%= f.input :day_price %>
+        <%= simple_form_for([@artpiece, @booking]) do |f| %>
+          <%= f.input :start_date %>
+          <%= f.input :end_date %>
+
+
           <%= f.submit class: "btn btn-primary" %>
         <% end %>
       </div>
