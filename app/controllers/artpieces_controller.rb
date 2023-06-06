@@ -1,5 +1,6 @@
 class ArtpiecesController < ApplicationController
   before_action :set_artpiece, only: %i[show edit update]
+  # include CloudinaryHelper
 
   def index
     @artpieces = Artpiece.all
@@ -17,11 +18,13 @@ class ArtpiecesController < ApplicationController
   end
 
   def create
+    @artpieces = Artpiece.all
     @artpiece = Artpiece.new(artpiece_params)
+    @artpiece.user = current_user
     if @artpiece.save
       redirect_to artpiece_path(@artpiece)
     else
-      render :new, status: :unprocessable_entity
+      render :index, status: :unprocessable_entity
     end
   end
 
@@ -39,7 +42,7 @@ class ArtpiecesController < ApplicationController
   private
 
   def artpiece_params
-    params.require(:artpiece).permit(:title, :artist, :description, :day_price)
+    params.require(:artpiece).permit(:title, :artist, :description, :day_price, photos: [])
   end
 
   def set_artpiece
