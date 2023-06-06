@@ -12,6 +12,11 @@
                     <li class="text-secondary opacity-75"><%= artpiece.description %></li>
                     <li class="text-secondary opacity-75"><%= artpiece.artist %></li>
                     <li class="mt-2 fw-medium fs-6 text-decoration-underline">$<%= artpiece.day_price %> total</li>
+                      <% if artpiece.book_validation(@start_date..@end_date) %>
+                        <li>This piece is already booked.</li>
+                      <% else %>
+                        <li>This piece is available.</li>
+                      <% end %>
                   </ul>
                 </div>
             </div>
@@ -38,3 +43,5 @@
     </div>
   </div>
 </div>
+
+

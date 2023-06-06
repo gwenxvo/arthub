@@ -5,6 +5,8 @@ class ArtpiecesController < ApplicationController
   def index
     @artpieces = Artpiece.all
     @artpiece = Artpiece.new
+    @start_date = params[:start_date] || Date.today
+    @end_date = params[:end_date] || Date.today + 7.days
   end
 
   def show
