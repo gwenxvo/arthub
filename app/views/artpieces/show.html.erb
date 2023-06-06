@@ -2,7 +2,7 @@
   <div class="container-photo-info">
     <div class="container-photo">
       <%= cl_image_tag @artpiece.photos.first.key, class: "gallery-main" %>
-        <div class="container-gallery">
+        <div class="gallery">
           <i class="fa-solid fa-chevron-left"></i>
           <% @artpiece.photos[1..].each do |photo| %>
               <%= cl_image_tag photo.key, class: "gallery-item" %>
