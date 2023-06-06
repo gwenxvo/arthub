@@ -2,13 +2,20 @@
 
 <ul>
   <% @artpieces.each do |artpiece| %>
-    <li><%= link_to artpiece.title, artpiece_path(artpiece) %>
+    <li>
+      <%= link_to artpiece.title, artpiece_path(artpiece) %>
       <p><%= artpiece.description %></p>
       <p><%= artpiece.artist %></p>
       <p><%= artpiece.day_price %></p>
+      <% if artpiece.book_validation(@start_date..@end_date) %>
+        <p>This piece is already booked.</p>
+      <% else %>
+        <p>This piece is available.</p>
+      <% end %>
     </li>
   <% end %>
 </ul>
+
 
 
 <%= simple_form_for(@artpiece) do |f| %>
