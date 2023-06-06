@@ -10,6 +10,7 @@ puts 'Cleaning database..'
 Artpiece.destroy_all
 
 User.create(email: "test@lewagon.com", password: "password", password_confirmation: "password")
+User.create(email: "ross@gmail.com", password: "password", password_confirmation: "password")
 
 puts 'Adding movies..'
 Artpiece.create(title: "Water Lillies", description: "Huge painting, 300cm x 180cm", artist: "Claude Monet", day_price: 75, user: User.last)

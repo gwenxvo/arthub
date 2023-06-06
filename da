@@ -1,0 +1,120 @@
+[33mcommit f3d884bbed2b265d46817481f2597ac192b58e81[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m, [m[1;31morigin/master[m[33m, [m[1;31morigin/HEAD[m[33m)[m
+Merge: 5532ce2 5e6871c
+Author: Monika (Ngoc Quyen) Vo <63725732+gwenxvo@users.noreply.github.com>
+Date:   Mon Jun 5 17:14:06 2023 +0200
+
+    Merge pull request #6 from gwenxvo/seed-file
+    
+    added seed file
+
+[33mcommit 5e6871ca259aecfd3993954d04b48d52a95069c1[m[33m ([m[1;31morigin/seed-file[m[33m)[m
+Author: Monika Vo <monika-quyen@hotmail.de>
+Date:   Mon Jun 5 17:13:37 2023 +0200
+
+    added seed file
+
+[33mcommit 5532ce2c16a8af3c3f0920d17d417573792edc70[m
+Merge: 9d7e7ca a4c672e
+Author: Monika (Ngoc Quyen) Vo <63725732+gwenxvo@users.noreply.github.com>
+Date:   Mon Jun 5 16:50:37 2023 +0200
+
+    Merge pull request #5 from gwenxvo/booking-model
+    
+    created booking model and controller, controller needs create functio…
+
+[33mcommit a4c672e1f84d9e7cc54131686ce82d349908107d[m[33m ([m[1;31morigin/booking-model[m[33m)[m
+Merge: 89fe793 9d7e7ca
+Author: Monika (Ngoc Quyen) Vo <63725732+gwenxvo@users.noreply.github.com>
+Date:   Mon Jun 5 16:50:21 2023 +0200
+
+    Merge branch 'master' into booking-model
+
+[33mcommit 89fe79321f92a93de019c60014cff249e5b06a36[m
+Author: Lucas Harrison <zebo200@gmail.com>
+Date:   Mon Jun 5 15:44:29 2023 +0100
+
+    created booking model and controller, controller needs create function finalized with input from user_id and artpiece_id
+
+[33mcommit 9d7e7ca69e8879c562190da4e5b9f0386d333974[m
+Merge: 565c0d2 64963b9
+Author: Monika (Ngoc Quyen) Vo <63725732+gwenxvo@users.noreply.github.com>
+Date:   Mon Jun 5 16:40:39 2023 +0200
+
+    Merge pull request #4 from gwenxvo/artpiece-validation
+    
+    Artpiece validation
+
+[33mcommit 64963b94508bfe3e312ba2ea998a42517ab85781[m
+Author: Monika Vo <monika-quyen@hotmail.de>
+Date:   Mon Jun 5 16:40:00 2023 +0200
+
+    added seed
+
+[33mcommit 565c0d2cd392c50bd773784252e7e0e5c247036a[m
+Merge: 09899e2 e4c0c62
+Author: Monika (Ngoc Quyen) Vo <63725732+gwenxvo@users.noreply.github.com>
+Date:   Mon Jun 5 16:32:31 2023 +0200
+
+    Merge pull request #3 from gwenxvo/user_model
+    
+    style to signup page and settings to controller
+
+[33mcommit e4c0c622d8c71bdfd7fc2db4229699632416d54a[m[33m ([m[1;31morigin/user_model[m[33m, [m[1;32muser_model[m[33m)[m
+Author: Rostyslav Komar <komarostyslav@gmail.com>
+Date:   Mon Jun 5 17:29:42 2023 +0300
+
+    style to signup page and settings to controller
+
+[33mcommit 78e0857b1cf511b55180521b95570e26f9e311c1[m
+Author: Monika Vo <monika-quyen@hotmail.de>
+Date:   Mon Jun 5 16:29:36 2023 +0200
+
+    added seed data
+
+[33mcommit 453034b0dcd6ade33d444ae850a2f6a2cb774da1[m
+Author: Monika Vo <monika-quyen@hotmail.de>
+Date:   Mon Jun 5 15:58:23 2023 +0200
+
+    updated artpieces controller
+
+[33mcommit e2467f271b07d372a150a4ff58e90191ca514299[m
+Author: Monika Vo <monika-quyen@hotmail.de>
+Date:   Mon Jun 5 15:45:16 2023 +0200
+
+    added controller and views for artpieces
+
+[33mcommit 09899e2630969024ff0a975701f006ad40da80de[m
+Merge: c57c26a 7bc45de
+Author: Monika (Ngoc Quyen) Vo <63725732+gwenxvo@users.noreply.github.com>
+Date:   Mon Jun 5 15:20:36 2023 +0200
+
+    Merge pull request #2 from gwenxvo/artpiece-model
+    
+    added artpiece model
+
+[33mcommit 7bc45de32239b21f2ef28555729239778b2c6aad[m
+Author: Monika Vo <monika-quyen@hotmail.de>
+Date:   Mon Jun 5 15:19:32 2023 +0200
+
+    added artpiece model
+
+[33mcommit c57c26a8e87b54dc28ab209a7b3c85626ad0e86f[m
+Merge: 9883947 2f7f768
+Author: Monika (Ngoc Quyen) Vo <63725732+gwenxvo@users.noreply.github.com>
+Date:   Mon Jun 5 15:06:42 2023 +0200
+
+    Merge pull request #1 from gwenxvo/models
+    
+    user model
+
+[33mcommit 2f7f7684b390533b00e9c1673c14dd886f768f8f[m[33m ([m[1;31morigin/models[m[33m, [m[1;32mmodels[m[33m)[m
+Author: Rostyslav Komar <komarostyslav@gmail.com>
+Date:   Mon Jun 5 16:03:04 2023 +0300
+
+    user model
+
+[33mcommit 9883947fd2916fb2a237685b2ad020c82907106f[m
+Author: Monika Vo <monika-quyen@hotmail.de>
+Date:   Mon Jun 5 14:08:35 2023 +0200
+
+    Initial commit with minimal template from https://github.com/lewagon/rails-templates

@@ -12,6 +12,11 @@
                     <li><%= artpiece.description %></li>
                     <li><%= artpiece.artist %></li>
                     <li class="">$<%= artpiece.day_price %></li>
+                      <% if artpiece.book_validation(@start_date..@end_date) %>
+                        <li>This piece is already booked.</li>
+                      <% else %>
+                        <li>This piece is available.</li>
+                      <% end %>
                   </ul>
                 </div>
             </div>
@@ -19,7 +24,6 @@
         </div>
       <% end %>
   </div>
-
 
 
   <%= simple_form_for(@artpiece) do |f| %>
@@ -31,3 +35,4 @@
     <%= f.submit %>
   <% end %>
 </div>
+
