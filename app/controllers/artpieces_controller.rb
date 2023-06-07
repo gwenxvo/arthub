@@ -49,7 +49,7 @@ class ArtpiecesController < ApplicationController
 
   def destroy
     @artpiece = Artpiece.find(params[:id])
-    @arpiece.destroy
+    @artpiece.destroy
     redirect_to artpieces_path, status: :see_other
   end
 

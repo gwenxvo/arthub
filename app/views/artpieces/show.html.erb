@@ -49,7 +49,7 @@
 
       <div class="container-edit-delete">
         <%= link_to 'Edit artpiece', edit_artpiece_path(@artpiece), class: "btn btn-primary" %>
-        <%= link_to 'Remove artpiece', artpieces_path,
+        <%= link_to 'Remove artpiece', artpiece_path(@artpiece),
                     data: {turbo_method: :delete, turbo_confirm: "Do you really want to remove this artpiece?"}, class: "delete-none btn btn-primary" %>
       </div>
 
