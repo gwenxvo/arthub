@@ -34,16 +34,29 @@ class ArtpiecesController < ApplicationController
 
   def update
     if @artpiece.update(artpiece_params)
+      if params[:artpiece][:photos].present?
+        params[:artpiece][:photos].each do |image|
+          @artpiece.photos.attach(image)
+        end
+      end
+      flash[:success] = 'Updated!'
       redirect_to artpiece_path(@artpiece)
     else
-      render :edit
+      flash[:error] = 'Not updated'
+      render :edit, status: :unprocessable_entity
     end
+  end
+
+  def destroy
+    @artpiece = Artpiece.find(params[:id])
+    @arpiece.destroy
+    redirect_to artpieces_path, status: :see_other
   end
 
   private
 
   def artpiece_params
-    params.require(:artpiece).permit(:title, :artist, :description, :day_price, photos: [])
+    params.require(:artpiece).permit(:title, :artist, :description, :day_price)
   end
 
   def set_artpiece
