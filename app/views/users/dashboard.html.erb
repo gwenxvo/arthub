@@ -8,7 +8,7 @@
           <% @artpieces.each do |artpiece| %>
             <div class="col-lg-4 col-sm-12 col-md-6 d-flex align-items-stretch">
               <div class="card mb-2 border-0">
-                <div class=""><%= cl_image_tag artpiece.photos.first.key, :height=>300, crop: :fill, class: "object-fit-cover rounded-3" %></div>
+                <div class=""><%= cl_image_tag artpiece.photos.first.key, :height=>350, :width=>350, crop: :lfill, class: "object-fit-cover rounded-3" %></div>
                 <div class="card-body p-0 h-25">
                     <p class="card-title m-0 lh-sm"><%= link_to artpiece.title, artpiece_path(artpiece), class:"text-decoration-none stretched-link text-dark fs-4 fw-normal" %></p>
                     <div class="card-text">
