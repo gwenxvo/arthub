@@ -50,7 +50,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_07_095141) do
     t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "rating"
     t.index ["user_id"], name: "index_artpieces_on_user_id"
   end
 
