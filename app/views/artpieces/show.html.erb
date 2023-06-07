@@ -27,19 +27,25 @@
       <div class="container-booking">
         <h4><strong><%= @artpiece.day_price %> € per day</strong></h4>
             <% booking = @artpiece.bookings.find_by(user: current_user) || @artpiece.bookings.new %>
-            <%= form_for([@artpiece, booking]) do |f| %>
-              <%= f.label :start_date %>
-              <%= f.date_field :start_date %>
-              <%= f.label :end_date %>
-         1     <%= f.date_field :end_date %>
-              <%= f.submit booking.new_record? ? "Book" : "Update Booking" %>
+            <%= simple_form_for([@artpiece, booking]) do |f| %>
+              <%= f.input :start_date, as: :date, label: 'Start Date' %>
+              <%= f.input :end_date, as: :date, label: 'End Date' %>
+              <%= f.button :submit, booking.new_record? ? "Book" : "Update Booking" %>
             <% end %>
+
             <% if booking.persisted? %>
+              Booking dates:
+              <% @artpiece.bookings.each do |booking| %>
+                <%= booking.start_date %> - <%= booking.end_date %>
+                <br>
+                Total price: <%= booking.total_price %>
+              <% end %>
               <%= button_to 'Cancel Booking', [@artpiece, booking], method: :delete, data: { confirm: 'Are you sure?' } %>
             <% end %>
       </div>
+
     </div>
   </div>
-
   <%= link_to 'Back', artpieces_path %>
+  <a href="/artpices">Back</a>
 </div>
