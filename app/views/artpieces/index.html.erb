@@ -13,11 +13,14 @@
                     <li class="text-secondary opacity-75"><%= artpiece.description %></li>
                     <li class="text-secondary opacity-75"><%= artpiece.artist %></li>
                     <div class="container-price-av">
-                      <% if artpiece.book_validation(@start_date..@end_date) %>
-                        <li>This piece is already booked.</li>
-                      <% else %>
-                        <li>This piece is available.</li>
-                      <% end %>
+
+
+                       <% if artpiece.booked?(Date.current) %>
+                         <li>This piece is already booked.</li>
+                        <% else %>
+                          <li>This piece is available.</li>
+                        <% end %>
+
                       <li class="mt-2 fw-medium fs-6 text-decoration-underline">$<%= artpiece.day_price %>/day </li>
                     </div>
                   </ul>

@@ -9,4 +9,10 @@ class Artpiece < ApplicationRecord
   def book_validation(date)
     bookings.where("start_date <= ? and end_date >= ?", date.last, date.first).exists?
   end
+
+  def booked?(date)
+    bookings.any? do |booking|
+      (booking.start_date..booking.end_date).cover?(date)
+    end
+  end
 end

@@ -28,6 +28,7 @@
       <div class="container-booking">
         <h4><strong><%= @artpiece.day_price %> € per day</strong></h4>
             <% booking = @artpiece.bookings.find_by(user: current_user) || @artpiece.bookings.new %>
+
             <%= simple_form_for([@artpiece, booking]) do |f| %>
               <%= f.input :start_date, as: :date, label: 'Start Date' %>
               <%= f.input :end_date, as: :date, label: 'End Date' %>
