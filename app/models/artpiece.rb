@@ -1,6 +1,6 @@
 class Artpiece < ApplicationRecord
   belongs_to :user
-  has_many :bookings
+  has_many :bookings, dependent: :destroy
   has_many_attached :photos
 
   validates :title, :description, :day_price, :photos, presence: true

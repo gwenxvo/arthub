@@ -1,22 +1,26 @@
-<h1>All Artpieces</h1>
 <div class="container">
+  <h1>All Artpieces</h1>
+
   <div class="row">
       <% @artpieces.each do |artpiece| %>
-        <div class="col-lg-3 col-sm-12 col-md-4 d-flex align-items-stretch">
-          <div class="card mb-2">
-            <img class="card-img" src="https://upload.wikimedia.org/wikipedia/commons/a/aa/Claude_Monet_-_Water_Lilies_-_1906%2C_Ryerson.jpg">
-            <div class="card-body pb-0">
-                <p class="card-title"><%= link_to artpiece.title, artpiece_path(artpiece) %></p>
-                <div class="card-text">
-                  <ul class="list-unstyled">
-                    <li><%= artpiece.description %></li>
-                    <li><%= artpiece.artist %></li>
-                    <li class="">$<%= artpiece.day_price %></li>
+        <div class="col-lg-4 col-sm-12 col-md-6 d-flex align-items-stretch">
+          <div class="card mb-2 border-0">
+            <div class="h-75"><%= cl_image_tag artpiece.photos.first.key, :crop=>"fill", class: "object-fit-cover rounded-3" %></div>
+            <div class="card-body p-0">
+                <p class="card-title m-0 lh-sm"><%= link_to artpiece.title, artpiece_path(artpiece), class:"text-decoration-none stretched-link text-dark fs-4 fw-normal" %></p>
+                <div class="card-text d-flex align-content-start">
+                  <ul class="list-unstyled lh-sm" %>
+                    <li class="text-secondary opacity-75"><%= artpiece.description %></li>
+                    <li class="text-secondary opacity-75"><%= artpiece.artist %></li>
+                    <div class="container-price-av">
+
                       <% if artpiece.book_validation(@start_date..@end_date) %>
                         <li>This piece is already booked.</li>
                       <% else %>
                         <li>This piece is available.</li>
                       <% end %>
+                      <li class="mt-2 fw-medium fs-6 text-decoration-underline">$<%= artpiece.day_price %>/day </li>
+                    </div>
                   </ul>
                 </div>
             </div>
@@ -26,13 +30,20 @@
   </div>
 
 
-  <%= simple_form_for(@artpiece) do |f| %>
-    <%= f.input :title %>
-    <%= f.input :artist %>
-    <%= f.input :description %>
-    <%= f.input :day_price %>
-    <%= f.input :photos, as: :file, input_html: { multiple: true } %>
-    <%= f.submit %>
-  <% end %>
-</div>
 
+  <div class="container-create-form row mt-5 mb-5">
+    <div class="col-lg-5 col-sm-5 col-md-5 d-flex justify-content-around">
+      <h4>Want to share your beautiful art with others?</h4>
+    </div>
+    <div class="col-lg-7 col-sm-7 col-md-7 d-flex justify-content-around">
+      <%= simple_form_for(@artpiece) do |f| %>
+        <%= f.input :title %>
+        <%= f.input :artist %>
+        <%= f.input :description %>
+        <%= f.input :day_price %>
+        <%= f.input :photos, as: :file, input_html: { multiple: true } %>
+        <%= f.submit class: "btn btn-primary", value: "CREATE NEW POSTING" %>
+      <% end %>
+    </div>
+  </div>
+</div>

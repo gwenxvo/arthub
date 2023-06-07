@@ -1,9 +1,14 @@
 <div class="container">
   <div class="container-photo-info">
     <div class="container-photo">
-      <% @artpiece.photos.each do |photo| %>
-        <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fit %>
-      <% end %>
+      <%= cl_image_tag @artpiece.photos.first.key, class: "gallery-main" %>
+        <div class="gallery">
+          <i class="fa-solid fa-chevron-left"></i>
+          <% @artpiece.photos[1..].each do |photo| %>
+              <%= cl_image_tag photo.key, crop: :fill, class: "gallery-item" %>
+          <% end %>
+          <i class="fa-solid fa-chevron-right"></i>
+        </div>
     </div>
 
     <div>
@@ -29,7 +34,6 @@
          1     <%= f.date_field :end_date %>
               <%= f.submit booking.new_record? ? "Book" : "Update Booking" %>
             <% end %>
-
             <% if booking.persisted? %>
               <%= button_to 'Cancel Booking', [@artpiece, booking], method: :delete, data: { confirm: 'Are you sure?' } %>
             <% end %>
