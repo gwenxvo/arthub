@@ -33,7 +33,7 @@ class ArtpiecesController < ApplicationController
   end
 
   def update
-    if @artpiece.update(artpiece_params)
+    if @artpiece.update(edit_artpiece_params)
       if params[:artpiece][:photos].present?
         params[:artpiece][:photos].each do |image|
           @artpiece.photos.attach(image)
@@ -56,6 +56,10 @@ class ArtpiecesController < ApplicationController
   private
 
   def artpiece_params
+    params.require(:artpiece).permit(:title, :artist, :description, :day_price, photos: [])
+  end
+
+  def edit_artpiece_params
     params.require(:artpiece).permit(:title, :artist, :description, :day_price)
   end
 
