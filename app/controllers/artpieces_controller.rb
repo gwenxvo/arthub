@@ -10,8 +10,8 @@ class ArtpiecesController < ApplicationController
   end
 
   def show
-    @booking = Booking.new
     @rating = Rating.new(artpiece: @artpiece)
+    @booking = current_user.bookings.find_by(artpiece: @artpiece) || @artpiece.bookings.new
   end
 
   def new
@@ -36,7 +36,7 @@ class ArtpiecesController < ApplicationController
     if @artpiece.update(artpiece_params)
       redirect_to artpiece_path(@artpiece)
     else
-      render :edit, status: :unprocessable_entity
+      render :edit
     end
   end
 
