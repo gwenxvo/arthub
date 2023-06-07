@@ -11,6 +11,7 @@ class ArtpiecesController < ApplicationController
 
   def show
     @booking = Booking.new
+    @rating = Rating.new(artpiece: @artpiece)
   end
 
   def new
