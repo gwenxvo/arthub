@@ -10,6 +10,7 @@ class ArtpiecesController < ApplicationController
   end
 
   def show
+    @rating = Rating.new(artpiece: @artpiece)
     @booking = current_user.bookings.find_by(artpiece: @artpiece) || @artpiece.bookings.new
   end
 

@@ -1,11 +1,12 @@
 <div class="container">
+  <div class="link-bar"> <%= link_to 'Back', artpieces_path %></div>
   <div class="container-photo-info">
-    <div class="container-photo">
-      <%= cl_image_tag @artpiece.photos.first.key, class: "gallery-main" %>
+    <div class="container-photo" data-controller="gallery">
+      <%= cl_image_tag @artpiece.photos.first.key, class: "gallery-main", data: {gallery_target: "photo"} %>
         <div class="gallery">
           <i class="fa-solid fa-chevron-left"></i>
           <% @artpiece.photos[1..].each do |photo| %>
-              <%= cl_image_tag photo.key, crop: :fill, class: "gallery-item" %>
+              <%= cl_image_tag photo.key, crop: :fill, class: "gallery-item", data: {action: "click->gallery#change"} %>
           <% end %>
           <i class="fa-solid fa-chevron-right"></i>
         </div>
@@ -46,6 +47,26 @@
 
     </div>
   </div>
-  <%= link_to 'Back', artpieces_path %>
-  <a href="/artpices">Back</a>
+  <div class="container-review">
+        <div class="container-all-reviews">
+          <h3>Ratings</h3>
+            <% @artpiece.ratings.each do |rating| %>
+              <div class='review'>
+                <% rating.rating.times do |star| %>
+                  <i class="fa-solid fa-star"></i>
+                <% end %>
+                <p><%= rating.content %></p>
+              </div>
+            <% end %>
+        </div>
+
+        <div class="container-add-review">
+          <h3>Add Your Rating</h3>
+          <%= simple_form_for([@artpiece, @rating]) do |f| %>
+              <%= f.input :content %>
+              <%= f.input :rating, collection: (1..5).to_a, input_html: {data: {controller: "star-rating"}} %>
+              <%= f.submit class: "btn btn-primary" %>
+          <% end %>
+        </div>
+      </div>
 </div>
