@@ -6,6 +6,9 @@ class Artpiece < ApplicationRecord
 
   validates :title, :description, :day_price, presence: true
 
+  geocoded_by :address
+  after_validation :geocode, if: :will_save_change_to_address?
+
   def book_validation(date)
     bookings.where("start_date <= ? and end_date >= ?", date.last, date.first).exists?
   end
@@ -21,4 +24,7 @@ class Artpiece < ApplicationRecord
   algoliasearch do
     attribute :title, :artist, :description
   end
+
+
+
 end
