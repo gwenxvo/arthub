@@ -9,6 +9,11 @@ Rails.application.routes.draw do
   get 'users/:id/dashboard', to: 'users#dashboard', as: :user_dashboard
 
   resources :artpieces do
+
+    collection do
+      get :search
+    end
+
     resources :ratings, only: [:create]
     resources :bookings, only: [:create, :update, :destroy]
   end
