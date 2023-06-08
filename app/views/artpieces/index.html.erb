@@ -2,11 +2,11 @@
   <div class="container">
     <h1>Rent the world's most exquisite art!</h1>
     <p>Hosting a fancy dinner or want to impress your in-laws with fancy artpieces?</p>
-    <%= link_to 'Choose an artpiece', artpieces_path, class: "btn btn-banner" %>
+    <%= link_to 'Rent an artpiece', artpieces_path, class: "btn btn-banner" %>
   </div>
 </div>
 
-<div class="container">
+<div class="container" id="index">
   <h1>All Artpieces</h1>
 
   <%# Algolia search %>
@@ -55,7 +55,7 @@
 
 
 
-  <div class="container-create-form row mt-5 mb-20">
+  <div class="container-create-form row mt-5 mb-20" id="form-create">
     <div class="col-lg-5 col-sm-5 col-md-5 d-flex justify-content-around">
       <h4>Want to share your beautiful art with others?</h4>
     </div>
