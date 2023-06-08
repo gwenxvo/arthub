@@ -12,11 +12,6 @@
   grid-template-columns: 1fr 1fr;
   margin: 10px 0px;
   grid-gap: 10px;
-  
-.btn {
-    background-color: white;
-    color: black;
-    border: 2px solid $dark-beige;
 }
 
 .container-photo-info {
@@ -92,21 +87,6 @@
   h4 {
     font-size: 2.0rem;
   }
-
-  .btn {
-    width: 100%;
-    background-color: white;
-    color: black;
-    border: 2px solid $dark-beige;
-  }
-}
-
-
-.btn-primary:not(:disabled):not(.disabled) {
-  &:hover {
-    background: $dark-beige;
-    border: 2px solid $dark-beige;
-  }
 }
 
 .container-price-av {
@@ -131,13 +111,6 @@ ul {
   background-color: white;
   padding: 30px 50px;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
-
-  .btn {
-    width: 100%;
-    background-color: white;
-    color: black;
-    border: 2px solid $dark-beige;
-  }
 }
 
 .container-all-reviews {
