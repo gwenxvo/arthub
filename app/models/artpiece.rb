@@ -19,6 +19,6 @@ class Artpiece < ApplicationRecord
   include AlgoliaSearch
 
   algoliasearch do
-    attribute :title, :artist, :description
+    attributes :title, :artist, :description
   end
 end

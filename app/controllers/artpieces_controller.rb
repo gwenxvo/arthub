@@ -4,7 +4,9 @@ class ArtpiecesController < ApplicationController
 
   def index
     @artpiece = Artpiece.new
-    @artpieces = params[:query].present? ? Artpiece.search(params[:query]) : Artpiece.all
+    @artpieces = params[:search].present? && params[:search][:query].present? ? Artpiece.search(params[:search][:query]) : Artpiece.all
+    # raise
+    # @artpieces = Artpiece.all
     @start_date = params[:start_date] || Date.today
     @end_date = params[:end_date] || Date.today + 7.days
   end

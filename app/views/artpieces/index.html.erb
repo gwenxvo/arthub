@@ -2,7 +2,7 @@
   <h1>All Artpieces</h1>
 
   <%# Algolia search %>
-  <%= simple_form_for :search, url: artpieces_path, method: "get" do |f| %>
+  <%= simple_form_for :search, url: artpieces_path, method: :get do |f| %>
     <%= f.input :query, input_html: {value: params[:query]}, placeholder: "Seek out your masterpiece", label: false%>
     <%= f.button :submit, "Search"%>
   <%end%>
