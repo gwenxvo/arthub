@@ -27,39 +27,6 @@
   padding: 30px 0px;
 }
 
-.container-booking {
-  border: 1px solid rgb(221, 221, 221);
-  background: $beige;
-  box-shadow: 0 5 15px rgba(0,0,0,0.2);
-  border-radius: 12px;
-  margin: 10px center;
-  padding: 24px 24px;
-
-  h2 {
-    font-size: 1.5rem;
-  }
-
-  h4 {
-    font-size: 2.0rem;
-  }
-
-  .btn-secondary {
-    width: 100%;
-    background-color: $dark-beige;
-    color: white;
-    border: 2px solid $dark-beige;
-  }
-}
-
-.btn-secondary:not(:disabled):not(.disabled) {
-  &:hover {
-    background-image: url("https://images.unsplash.com/photo-1482881497185-d4a9ddbe4151?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=765&q=80");
-    border: 2px solid $dark-beige;
-    color: black;
-    font-weight: 600;
-  }
-}
-
 .container-photo {
   .gallery-main {
     width: 90%;
