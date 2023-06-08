@@ -12,12 +12,6 @@
   grid-template-columns: 1fr 1fr;
   margin: 10px 0px;
   grid-gap: 10px;
-
-  .btn {
-    background-color: white;
-    color: black;
-    border: 2px solid $dark-beige;
-  }
 }
 
 .container-photo-info {
@@ -46,12 +40,12 @@
 
     color: rgb(81, 81, 81);
   }
-  .btn {
-    color: rgb(81, 81, 81);
-    font-weight: bold;
-    background-color: white;
-    margin-bottom: 16px;
-  }
+  // .btn {
+  //   color: rgb(81, 81, 81);
+  //   font-weight: bold;
+  //   background-color: white;
+  //   margin-bottom: 16px;
+  // }
  a {
   color: rgb(81, 81, 81);
  }
@@ -68,21 +62,6 @@
 
   h4 {
     font-size: 2.0rem;
-  }
-
-  .btn {
-    width: 100%;
-    background-color: white;
-    color: black;
-    border: 2px solid $dark-beige;
-  }
-}
-
-
-.btn-primary:not(:disabled):not(.disabled) {
-  &:hover {
-    background: $dark-beige;
-    border: 2px solid $dark-beige;
   }
 }
 
@@ -108,13 +87,6 @@ ul {
   background-color: white;
   padding: 30px 50px;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
-
-  .btn {
-    width: 100%;
-    background-color: white;
-    color: black;
-    border: 2px solid $dark-beige;
-  }
 }
 
 .container-all-reviews {
