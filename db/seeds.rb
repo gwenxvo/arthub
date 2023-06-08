@@ -74,4 +74,16 @@ file20 = URI.open("https://res.cloudinary.com/dkdtzggtc/image/upload/v1686084385
 @artpiece5.photos.attach(io: file20, filename: "Humandkind-vs-nature-4.png", content_type: "image/png")
 @artpiece5.save
 
+file21 = URI.open("https://res.cloudinary.com/dkdtzggtc/image/upload/v1686260564/The_flight_of_the_dragonfly_in_front_of_the_sun-Joan_Miro_lkth9i.jpg")
+file22 = URI.open("https://res.cloudinary.com/dkdtzggtc/image/upload/v1686260566/The_flight_of_the_dragonfly_in_front_of_the_sun-Joan_Miro-2_qa8cxn.jpg")
+file23 = URI.open("https://res.cloudinary.com/dkdtzggtc/image/upload/v1686260569/The_flight_of_the_dragonfly_in_front_of_the_sun-Joan_Miro-3_jkywkl.jpg")
+file24 = URI.open("https://res.cloudinary.com/dkdtzggtc/image/upload/v1686260567/The_flight_of_the_dragonfly_in_front_of_the_sun-Joan_Miro-4_oatkst.jpg")
+
+@artpiece6 = Artpiece.new(address: "161 Sajik-ro, Jongno-gu, Seoul", title: "The flight of the dragonfly", description: "From a series of paintings Miro created in which he reduced his stock of expressive means to a minimum", artist: "Joan Miro", day_price: 1250, user: User.first)
+@artpiece6.photos.attach(io: file21, filename: "The flight of the dragonfly.png", content_type: "image/png")
+@artpiece6.photos.attach(io: file22, filename: "The flight of the dragonfly-2.png", content_type: "image/png")
+@artpiece6.photos.attach(io: file23, filename: "The flight of the dragonfly-3.png", content_type: "image/png")
+@artpiece6.photos.attach(io: file24, filename: "The flight of the dragonfly-4.png", content_type: "image/png")
+@artpiece6.save
+
 puts 'Finished..'

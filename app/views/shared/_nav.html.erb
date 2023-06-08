@@ -1,16 +1,15 @@
-<div class="navbar navbar-expand-sm navbar-light navbar-lewagon fixed-top">
+<div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
   <div class="container-fluid">
-    <%# <a class="navbar-brand" href="#"> %>
-    <%= link_to root_path do %>
-      <i class="fa-regular fa-square"></i>
+    <%= link_to root_path, class: "navbar-brand" do %>
+      <%= link_to root_path do %>
+        <i class="fa-regular fa-square"></i>
+      <% end %>
     <% end %>
-    <%# </a> %>
+
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
 
-
-    <%# <a class="nav-title" href="/">arthub</a> %>
     <%= link_to root_path, class: "nav-title" do %>
       arthub
     <% end %>
@@ -18,24 +17,27 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto">
         <% if user_signed_in? %>
-            <li class="nav-item dropdown">
-              <div class="dropdown-toggle nb-item" id="navbarDropdown1" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Artpieces
-                <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown1">
-                    <%= link_to "See all artpieces", root_path(anchor: "index"), class: "dropdown-item" %>
-                    <%= link_to "Post new artpiece", root_path(anchor: "form-create"), class: "dropdown-item" %>
-                </div>
+
+          <li class="nav-item dropdown">
+            <div class="dropdown-toggle nb-item" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Artpieces
+              <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                <%= link_to "See all artpieces", root_path(anchor: "index"), class: "dropdown-item" %>
+                <%= link_to "Post new artpiece", root_path(anchor: "form-create"), class: "dropdown-item" %>
               </div>
-            </li>
+          </li>
 
           <li class="nav-item active">
             <%= link_to "My dashboard", user_dashboard_path(current_user), class: "nb-item" %>
           </li>
-          <li class="nav-item active">
+
+          <li class="nav-item">
             <%= link_to "Log out", destroy_user_session_path, class: "nav-link", data: {turbo_method: :delete} %>
           </li>
-          <li class="nav-item dropdown">
+
+          <li class="nav-item active">
             <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
           </li>
+
         <% else %>
           <li class="nav-item">
             <%= link_to "Login", new_user_session_path, class: "nav-link" %>
