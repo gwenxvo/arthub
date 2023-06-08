@@ -142,3 +142,14 @@ ul {
     color: $dark-beige;
   }
 }
+
+// Leave for now, currently trying to test.
+// .dashboard-booking-container {
+//   position: relative;
+// }
+
+.btn-container {
+  display: flex;
+  flex-direction: row;
+  position: absolute;
+}
