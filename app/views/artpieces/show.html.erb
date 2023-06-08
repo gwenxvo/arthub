@@ -32,7 +32,7 @@
             <%= simple_form_for([@artpiece, booking]) do |f| %>
               <%= f.input :start_date, as: :date, label: 'Start Date' %>
               <%= f.input :end_date, as: :date, label: 'End Date' %>
-              <%= f.button :submit, booking.new_record? ? "Book" : "Update Booking" %>
+              <%= f.button :submit, booking.new_record? ? "Book now" : "Update Booking", class: "btn btn-secondary" %>
 
             <% end %>
 
