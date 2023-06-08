@@ -36,8 +36,9 @@
 
             <% end %>
 
-            <div class="booking-confirmation">
-              <% if booking.persisted? %>
+
+            <% if booking.persisted? %>
+              <div class="booking-confirmation">
                 <strong>Booking dates:</strong>
                 <% @artpiece.bookings.each do |booking| %>
                   <em><%= booking.start_date %> - <%= booking.end_date %></em>
@@ -48,8 +49,9 @@
                   <%= link_to 'See my Bookings', user_dashboard_path(current_user), class: "btn btn-secondary-sm" %>
                   <%= button_to 'Cancel Booking', [@artpiece, booking], method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger-sm" %>
                 </div>
-              <% end %>
-            </div>
+              </div>
+            <% end %>
+
       </div>
 
       <div class="container-edit-delete">
