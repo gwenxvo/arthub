@@ -7,6 +7,9 @@ export default class extends Controller {
   }
 
   change(event) {
-    this.photoTarget.src = event.currentTarget.src
+    const photo = this.photoTarget.src
+    const thumbnail = event.currentTarget.src
+    this.photoTarget.src = thumbnail
+    event.currentTarget.src = photo
   }
 }

@@ -1,0 +1,17 @@
+<div class="container-edit-form">
+  <div class="container-create-form row mt-5 mb-5">
+    <div class="col-lg-5 col-sm-5 col-md-5 d-flex justify-content-around">
+      <h4>Edit your artpiece</h4>
+    </div>
+    <div class="col-lg-7 col-sm-7 col-md-7 d-flex justify-content-around">
+      <%= simple_form_for(@artpiece) do |f| %>
+        <%= f.input :title %>
+        <%= f.input :artist %>
+        <%= f.input :description %>
+        <%= f.input :day_price %>
+        <%= f.input :photos, as: :file, input_html: { multiple: true } %>
+        <%= f.submit class: "btn btn-primary", value: "EDIT YOUR POSTING" %>
+      <% end %>
+    </div>
+  </div>
+</div>

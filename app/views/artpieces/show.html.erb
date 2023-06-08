@@ -26,23 +26,40 @@
       </div>
 
       <div class="container-booking">
-        <h4><strong><%= @artpiece.day_price %> € per day</strong></h4>
+        <h4><strong>€<%= @artpiece.day_price %>/day</strong></h4>
             <% booking = @artpiece.bookings.find_by(user: current_user) || @artpiece.bookings.new %>
-            <%= form_for([@artpiece, booking]) do |f| %>
-              <%= f.label :start_date %>
-              <%= f.date_field :start_date %>
-              <%= f.label :end_date %>
-         1     <%= f.date_field :end_date %>
-              <%= f.submit booking.new_record? ? "Book" : "Update Booking" %>
+
+            <%= simple_form_for([@artpiece, booking]) do |f| %>
+              <%= f.input :start_date, as: :date, label: 'Start Date' %>
+              <%= f.input :end_date, as: :date, label: 'End Date' %>
+              <%= f.button :submit, booking.new_record? ? "Book now" : "Update Booking", class: "btn btn-secondary" %>
+
             <% end %>
-            <% if booking.persisted? %>
-              <%= button_to 'Cancel Booking', [@artpiece, booking], method: :delete, data: { confirm: 'Are you sure?' } %>
-            <% end %>
+
+            <div class="booking-confirmation">
+              <% if booking.persisted? %>
+                <strong>Booking dates:</strong>
+                <% @artpiece.bookings.each do |booking| %>
+                  <em><%= booking.start_date %> - <%= booking.end_date %></em>
+                  <br>
+                  <strong>Total price:</strong> <em>€<%= booking.total_price %></em>
+                <% end %>
+                <div class="buttons d-flex justify-content-between align-items-center">
+                  <%= link_to 'See my Bookings', user_dashboard_path(current_user), class: "btn btn-primary" %>
+                  <%= button_to 'Cancel Booking', [@artpiece, booking], method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %>
+                </div>
+              <% end %>
+            </div>
       </div>
+
+      <div class="container-edit-delete">
+        <%= link_to 'Edit artpiece', edit_artpiece_path(@artpiece), class: "btn btn-primary" %>
+        <%= link_to 'Remove artpiece', artpiece_path(@artpiece),
+                    data: {turbo_method: :delete, turbo_confirm: "Do you really want to remove this artpiece?"}, class: "delete-none btn btn-danger" %>
+      </div>
+
     </div>
   </div>
-
-
   <div class="container-review">
         <div class="container-all-reviews">
           <h3>Ratings</h3>

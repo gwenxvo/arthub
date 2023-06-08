@@ -5,6 +5,7 @@ class ArtpiecesController < ApplicationController
   def index
     @artpieces = Artpiece.all
     @artpiece = Artpiece.new
+    @is_booked = @artpiece.booked?(Date.current)
     @start_date = params[:start_date] || Date.today
     @end_date = params[:end_date] || Date.today + 7.days
   end
@@ -33,17 +34,34 @@ class ArtpiecesController < ApplicationController
   end
 
   def update
-    if @artpiece.update(artpiece_params)
+    if @artpiece.update(edit_artpiece_params)
+      if params[:artpiece][:photos].present?
+        params[:artpiece][:photos].each do |image|
+          @artpiece.photos.attach(image)
+        end
+      end
+      flash[:success] = 'Updated!'
       redirect_to artpiece_path(@artpiece)
     else
-      render :edit
+      flash[:error] = 'Not updated'
+      render :edit, status: :unprocessable_entity
     end
+  end
+
+  def destroy
+    @artpiece = Artpiece.find(params[:id])
+    @artpiece.destroy
+    redirect_to artpieces_path, status: :see_other
   end
 
   private
 
   def artpiece_params
     params.require(:artpiece).permit(:title, :artist, :description, :day_price, photos: [])
+  end
+
+  def edit_artpiece_params
+    params.require(:artpiece).permit(:title, :artist, :description, :day_price)
   end
 
   def set_artpiece
