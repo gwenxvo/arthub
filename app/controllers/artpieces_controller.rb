@@ -3,9 +3,8 @@ class ArtpiecesController < ApplicationController
   # include CloudinaryHelper
 
   def index
-    @artpieces = Artpiece.all
     @artpiece = Artpiece.new
-    @is_booked = @artpiece.booked?(Date.current)
+    @artpieces = params[:query].present? ? Artpiece.search(params[:query]) : Artpiece.all
     @start_date = params[:start_date] || Date.today
     @end_date = params[:end_date] || Date.today + 7.days
   end
@@ -52,6 +51,10 @@ class ArtpiecesController < ApplicationController
     @artpiece = Artpiece.find(params[:id])
     @artpiece.destroy
     redirect_to artpieces_path, status: :see_other
+  end
+
+  def search
+    @artpieces = Artpiece.algolia_search(params[:query]) if params[:query].present
   end
 
   private

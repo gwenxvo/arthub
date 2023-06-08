@@ -15,4 +15,10 @@ class Artpiece < ApplicationRecord
       (booking.start_date..booking.end_date).cover?(date)
     end
   end
+
+  include AlgoliaSearch
+
+  algoliasearch do
+    attribute :title, :artist, :description
+  end
 end
