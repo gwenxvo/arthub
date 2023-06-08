@@ -14,16 +14,24 @@
                     <li class="text-secondary opacity-75"><%= artpiece.artist %></li>
                     <div class="container-price-av">
 
-
+                      <%# booking check by current day  %>
                        <% if artpiece.booked?(Date.current) %>
-                         <li>This piece is already booked.</li>
+                         <li>This piece is already booked</li>
                         <% else %>
-                          <li>This piece is available.</li>
+                          <li>This piece is available</li>
                         <% end %>
 
                       <li class="mt-2 fw-medium fs-6 text-decoration-underline">$<%= artpiece.day_price %>/day </li>
                     </div>
                   </ul>
+
+                  <%# average rating %>
+                  <%if artpiece.ratings.any? %>
+                    Average rating <%= artpiece.ratings.average(:rating).to_f %>
+                  <%else%>
+                    <p>Unrated</p>
+                  <% end %>
+
                 </div>
             </div>
           </div>
