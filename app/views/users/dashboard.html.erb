@@ -40,10 +40,12 @@
                         <ul class="list-unstyled lh-sm">
                           <div class="align-baseline">
                             <div class=>
-                              <li><% if booking.booking_status = false %>
+                              <li><% if booking.booking_status == nil %>
                                 Pending..
-                                <% else %>
+                                <% elsif booking.booking_status == true %>
                                 Booking accepted.
+                                <% else %>
+                                Booking declined.
                                 <% end %></li>
                             </div>
                           </div>
