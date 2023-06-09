@@ -1,12 +1,17 @@
+<div class="dashboard-banner" style="background-image: linear-gradient(rgba(162, 121, 6, 0.2),rgba(162, 121, 6, 0.2)), url(https://images.unsplash.com/photo-1598349326101-fc9e68975a52?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80);">
+  <div class="container">
+    <h1>Dashboard</h1>
+  </div>
+</div>
+
 <div class="container">
-  <h1>Dashboard</h1>
   <div class="row">
     <div class="pb-3 mb-3">
-      <div class="m-2">Your Upcoming Bookings</div>
+      <div class="dashboard-sections-title-containers mb-2">Your Upcoming Bookings</div>
       <%# Bookings Cards %>
       <% @bookings.each do |booking| %>
         <% booked_artpiece = @all_artpieces.find_by(id: booking.artpiece_id) %>
-        <div class="card">
+        <div class="upcoming-bookings-card mb-2">
           <div class="row g-0">
             <div class="col-sm-3 col-md-3">
             <%# IMAGE DIV %>
@@ -14,11 +19,11 @@
             </div>
             <div class="col-sm-9 col-md-9">
             <%# INTERIOR DESCRIPTION AND BUTTONS DIV %>
-              <div class="row g-0">
+              <div class="row">
                 <div class="col-sm-8 col-md-9">
                   <div class="card-body pb-0 pt-0">
                     <div>
-                      <p class="card-title m-0 lh-sm"><%= link_to booked_artpiece.title, artpiece_path(booked_artpiece), class:"text-decoration-none text-dark fs-4 fw-normal" %></p></h5>
+                      <p class="card-title mb-0 lh-sm"><%= link_to booked_artpiece.title, artpiece_path(booked_artpiece), class:"text-decoration-none text-dark fs-4 fw-normal" %></p></h5>
                     </div>
 
                     <ul class="list-unstyled lh-sm">
@@ -46,7 +51,7 @@
                 </div>
                 <%# BUTTONS %>
                 <div class="col-sm-4 col-md-3">
-                  <div class="d-inline-block align-bottom">
+                  <div class="d-inline align-bottom">
                     <div class="mt-2 mb-2">
                       <%= link_to 'Edit Booking', artpiece_path(booked_artpiece), class: "btn btn-secondary-sm-dashboard" %>
                     </div>
@@ -67,12 +72,12 @@
     </div>
 
     <div class="pb-3 mb-3">
-      <div class="m-2">Your Art</div>
+      <div class="dashboard-sections-title-containers m-2">Your Uploaded Art</div>
       <div class="row">
         <% @artpieces.each do |artpiece| %>
           <div class="col-lg-4 col-sm-6 col-md-6 d-flex align-items-stretch">
             <div class="card mb-2 border-0">
-              <div class=""><%= cl_image_tag artpiece.photos.first.key, :height=>300, :width=>300, crop: :fill, class: "object-fit-cover rounded-3" %></div>
+              <div class=""><%= cl_image_tag artpiece.photos.first.key, :height=>416, :width=>416, crop: :thumb, class: "object-fit-cover rounded-3" %></div>
               <div class="card-body p-0 h-25">
                   <p class="card-title m-0 lh-sm"><%= link_to artpiece.title, artpiece_path(artpiece), class:"text-decoration-none stretched-link text-dark fs-4 fw-normal" %></p>
                   <div class="card-text">

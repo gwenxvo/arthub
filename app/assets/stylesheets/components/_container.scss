@@ -147,13 +147,18 @@ ul {
   }
 }
 
-// Leave for now, currently trying to test.
-// .dashboard-booking-container {
-//   position: relative;
-// }
-
 .btn-container {
   display: flex;
   flex-direction: row;
   position: absolute;
+}
+
+.dashboard-booking-inv-text-container {
+  padding-left: 1px;
+}
+
+.dashboard-sections-title-containers {
+  border-bottom-style: solid;
+  border-width: thin;
+  border-color: $beige;
 }
