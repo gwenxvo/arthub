@@ -1,7 +1,7 @@
 <div class="banner" style="background-image: linear-gradient(rgba(162, 121, 6, 0.2),rgba(162, 121, 6, 0.2)), url(https://images.unsplash.com/photo-1580136607993-fd598cf5c4f5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1380&q=80);">
   <div class="container">
     <h1>Rent the world's most exquisite art!</h1>
-    <p>Hosting a fancy dinner or want to impress your in-laws with fancy artpieces?</p>
+    <p>Hosting a fancy dinner or want to impress your in-laws with elevated artpieces?</p>
     <%= link_to "Rent an artpiece", root_path(anchor: "index"), class: "btn btn-banner" %>
   </div>
 </div>
@@ -12,8 +12,8 @@
   <%# Algolia search %>
   <%= simple_form_for :search, url: artpieces_path, method: :get do |f| %>
   <div class="form-search">
-    <%= f.input :query, input_html: {value: params[:query]}, placeholder: "Seek out your masterpiece", label: false%>
-    <%= f.button :submit, "Search", class: " btn-secondary" %>
+    <%= f.input :query, input_html: {value: params[:query]}, placeholder: "Seek out your masterpiece", label: false %>
+    <%= f.button :submit, "Search", class: "btn-secondary", style: "margin-bottom: 1rem!important; margin-left: 10px" %>
   </div>
   <%end%>
 
