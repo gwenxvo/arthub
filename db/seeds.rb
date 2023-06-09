@@ -55,7 +55,7 @@ file6 = URI.open("https://cdn.kastatic.org/ka-perseus-images/b6e662b4efcd6c53bf8
 file7 = URI.open("https://i.ytimg.com/vi/CABaUQml-gg/maxresdefault.jpg")
 file8 = URI.open("https://cdn.shopify.com/s/files/1/0551/9248/5940/products/im0101vorschau1-1.jpg?v=1647296852")
 
-@artpiece2 = Artpiece.new(address: "Ounardwer Strasse 16-20, Berlin", title: "Starry Night", description: "Post impressionism/early expressionism with oil paints on canvas, 73,7cm × 92,1cm", artist: "Vincent van Gogh", day_price: 620, user: User.first)
+@artpiece2 = Artpiece.new(address: "Friedrichstrasse 126, 10117 Berlin", title: "Starry Night", description: "Post impressionism/early expressionism with oil paints on canvas, 73,7cm × 92,1cm", artist: "Vincent van Gogh", day_price: 620, user: User.first)
 @artpiece2.photos.attach(io: file5, filename: "Starry-night.png", content_type: "image/png")
 @artpiece2.photos.attach(io: file6, filename: "Starry-night-2.png", content_type: "image/png")
 @artpiece2.photos.attach(io: file7, filename: "Starry-night-3.png", content_type: "image/png")
@@ -91,7 +91,7 @@ file30 = URI.open("https://media.cnn.com/api/v1/images/stellar/prod/230303103749
 file31 = URI.open("https://cdn.unitycms.io/images/49meeM1jKJK80fFBpCO3sF.jpg")
 file32 = URI.open("https://sothebys-md.brightspotcdn.com/dims4/default/ef30919/2147483647/strip/true/crop/1834x2750+0+0/resize/385x577!/quality/90/?url=http%3A%2F%2Fsothebys-brightspot.s3.amazonaws.com%2Fmedia-desk%2Fe6%2F73%2F06b184014eaba25a1d9e8c1f3153%2Flot15-kandinskyscaleshot.jpg")
 
-@artpiece7 = Artpiece.new(address: "Bennelong Point, Sydney NSW 2000", title: "Murnau with Church", description: "The painting from 1910 has an eventful history: it once decorated the dining room of Johanna Margarethe and Siegbert Stern.", artist: "Wassily Kandinsky", day_price: 2289, user: User.first)
+@artpiece7 = Artpiece.new(address: "110 Swanston St, Melbourne VIC 3000", title: "Murnau with Church", description: "The painting from 1910 has an eventful history: it once decorated the dining room of Johanna Margarethe and Siegbert Stern.", artist: "Wassily Kandinsky", day_price: 2289, user: User.first)
 @artpiece7.photos.attach(io: file29, filename: "Murnau with Church.png", content_type: "image/png")
 @artpiece7.photos.attach(io: file30, filename: "Murnau with Church-2.png", content_type: "image/png")
 @artpiece7.photos.attach(io: file31, filename: "Murnau with Church-3.png", content_type: "image/png")
