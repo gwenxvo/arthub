@@ -1,6 +1,6 @@
 .container {
   margin-top: 80px;
-  margin-bottom: 80px;
+  margin-bottom: 120px;
 }
 
 .container-edit-form {
@@ -97,6 +97,10 @@
   display: flex;
   justify-content: space-between;
   align-items: baseline;
+
+  .fa-solid {
+    color: $red;
+  }
 }
 
 ul {
