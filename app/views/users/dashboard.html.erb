@@ -1,4 +1,4 @@
-<div class="dashboard-banner" style="background-image: linear-gradient(rgba(162, 121, 6, 0.2),rgba(162, 121, 6, 0.2)), url(https://images.unsplash.com/photo-1529333242387-8c6c002a52d3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NTJ8fGJlaWdlJTIwYmx1ZSUyMGFuZCUyMHllbGxvd3xlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=500&q=60);">
+<div class="dashboard-banner" style="background-image: linear-gradient(rgba(162, 121, 6, 0.2),rgba(162, 121, 6, 0.2)), url(https://unsplash.com/photos/wrQlWik8tTw/download?ixid=M3wxMjA3fDB8MXxzZWFyY2h8MzA2fHxiZWlnZSUyMGFydHxlbnwwfHx8fDE2ODYzMDUwMzR8MA&force=true);">
   <div class="container">
     <h1>Dashboard</h1>
   </div>
@@ -75,9 +75,9 @@
       <div class="dashboard-sections-title-containers m-2">Your Uploaded Art</div>
       <div class="row">
         <% @artpieces.each do |artpiece| %>
-          <div class="col-lg-4 col-sm-6 col-md-6 d-flex align-items-stretch">
+          <div class="col-lg-2 col-sm-6 col-md-6 d-flex align-items-stretch">
             <div class="card mb-2 border-0">
-              <div class=""><%= cl_image_tag artpiece.photos.first.key, :height=>416, :width=>416, crop: :thumb, class: "object-fit-cover rounded-3" %></div>
+              <div class=""><%= cl_image_tag artpiece.photos.first.key, :height=>200, :width=>200, crop: :thumb, class: "object-fit-cover rounded-3" %></div>
               <div class="card-body p-0 h-25">
                   <p class="card-title m-0 lh-sm"><%= link_to artpiece.title, artpiece_path(artpiece), class:"text-decoration-none stretched-link text-dark fs-4 fw-normal" %></p>
                   <div class="card-text">
@@ -85,7 +85,7 @@
                       <li class="text-secondary opacity-75 d-inline-block text-truncate" style="max-width: 100%"><%= artpiece.description %></li>
                       <li class="text-secondary opacity-75 d-inline-block text-truncate" style="max-width: 100%"><%= artpiece.artist %></li>
                       <div class="container-price-av">
-                        <li class="mt-2 fw-medium fs-6 text-decoration-underline">$<%= artpiece.day_price %>/day </li>
+                        <li class="mt-2 fw-medium fs-6 text-decoration-underline">€<%= artpiece.day_price %>/day </li>
                       </div>
                     </ul>
                   </div>
