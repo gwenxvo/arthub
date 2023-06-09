@@ -9,6 +9,12 @@ class ArtpiecesController < ApplicationController
     # @artpieces = Artpiece.all
     @start_date = params[:start_date] || Date.today
     @end_date = params[:end_date] || Date.today + 7.days
+    @markers = @artpieces.geocoded.map do |artpiece|
+      {
+        lat: artpiece.latitude,
+        lng: artpiece.longitude
+      }
+    end
   end
 
   def show
@@ -71,4 +77,5 @@ class ArtpiecesController < ApplicationController
   def set_artpiece
     @artpiece = Artpiece.find(params[:id])
   end
+
 end
