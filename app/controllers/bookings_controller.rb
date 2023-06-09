@@ -5,6 +5,7 @@ class BookingsController < ApplicationController
   def create
     @booking = @artpiece.bookings.new(booking_params)
     @booking.user = current_user
+    @booking.booking_status = @artpiece.booked?(Date.current)
     if @booking.save
       redirect_to artpiece_path(@artpiece), notice: 'Booking was successfully created'
     else
