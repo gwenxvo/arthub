@@ -11,3 +11,13 @@
 // Your CSS partials
 @import "components/index";
 @import "pages/index";
+
+
+.form-search {
+  display: flex;
+  align-items: center;
+}
+
+.form-group input {
+  width: 100%;
+}

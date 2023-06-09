@@ -69,3 +69,20 @@
     font-weight: 600;
   }
 }
+
+.btn-search-button:not(:disabled):not(.disabled) {
+  background-color: $dark-beige;
+  border: $border;
+  width: 15%;
+  margin-bottom: 15px;
+  margin-left: 10px;
+
+  &:hover {
+    background-image: url("https://images.unsplash.com/photo-1482881497185-d4a9ddbe4151?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=765&q=80");
+    border: 2px solid $dark-beige;
+    color: $black;
+    font-weight: 600;
+    margin-bottom: 15px;
+    margin-left: 10px;
+  }
+}

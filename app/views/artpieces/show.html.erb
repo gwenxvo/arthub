@@ -26,6 +26,7 @@
       </div>
 
       <div class="container-booking">
+      <% if current_user != @artpiece.user %>
         <h4><strong>€<%= @artpiece.day_price %>/day</strong></h4>
             <% booking = @artpiece.bookings.find_by(user: current_user) || @artpiece.bookings.new %>
 
@@ -35,9 +36,7 @@
               <%= f.button :submit, booking.new_record? ? "Book now" : "Update Booking", class: "btn btn-primary" %>
 
             <% end %>
-
-
-            <% if booking.persisted? %>
+              <% if booking.persisted? %>
               <div class="booking-confirmation">
                 <strong>Booking dates:</strong>
                 <% @artpiece.bookings.each do |booking| %>
@@ -51,6 +50,12 @@
                 </div>
               </div>
             <% end %>
+          <%else%>
+             <p>Unfortunately as the owner of that artpice, you wont be able to book for yourself</p>
+          <% end %>
+
+
+
 
       </div>
 
@@ -76,12 +81,16 @@
         </div>
 
         <div class="container-add-review">
+        <% if current_user != @artpiece.user %>
           <h3>Add Your Rating</h3>
           <%= simple_form_for([@artpiece, @rating]) do |f| %>
               <%= f.input :content %>
               <%= f.input :rating, collection: (1..5).to_a, input_html: {data: {controller: "star-rating"}} %>
               <%= f.submit class: "btn btn-secondary" %>
           <% end %>
+        <% else %>
+        <p>You can see what others thought of your artpiece, but sorry, no rating your own</p>
+        <% end %>
         </div>
       </div>
 </div>
