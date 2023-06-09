@@ -1,5 +1,5 @@
 <div class="container">
-  <div class="link-bar"> <%= link_to 'Back', artpieces_path %></div>
+  <div class="link-bar"> <%= link_to 'Back', root_path %></div>
   <div class="container-photo-info">
     <div class="container-photo" data-controller="gallery">
       <%= cl_image_tag @artpiece.photos.first.key, class: "gallery-main", data: {gallery_target: "photo"} %>
