@@ -51,15 +51,15 @@
                 </div>
               </div>
             <% end %>
-
-      </div>
-
-      <div class="container-edit-delete">
+          <%else%>
+             <p>Unfortunately as the owner of that artpice, you wont be able to book for yourself</p>
+                   <div class="container-edit-delete">
         <%= link_to 'Edit artpiece', edit_artpiece_path(@artpiece), class: "btn btn-secondary" %>
         <%= link_to 'Remove artpiece', artpiece_path(@artpiece),
                     data: {turbo_method: :delete, turbo_confirm: "Do you really want to remove this artpiece?"}, class: "delete-none btn btn-danger" %>
       </div>
-
+          <% end %>
+      </div>
     </div>
   </div>
   <div class="container-review">
