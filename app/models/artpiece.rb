@@ -6,6 +6,8 @@ class Artpiece < ApplicationRecord
 
   validates :title, :description, :day_price, presence: true
 
+  geocoded_by :address
+
   def book_validation(date)
     bookings.where("start_date <= ? and end_date >= ?", date.last, date.first).exists?
   end
