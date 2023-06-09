@@ -11,8 +11,10 @@
 
   <%# Algolia search %>
   <%= simple_form_for :search, url: artpieces_path, method: :get do |f| %>
+  <div class="form-search">
     <%= f.input :query, input_html: {value: params[:query]}, placeholder: "Seek out your masterpiece", label: false%>
-    <%= f.button :submit, "Search"%>
+    <%= f.button :submit, "Search", class: " btn-secondary" %>
+  </div>
   <%end%>
 
   <div class="row">

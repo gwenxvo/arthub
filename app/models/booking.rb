@@ -4,10 +4,18 @@ class Booking < ApplicationRecord
 
   validates :start_date, :end_date, presence: true
   validate :check_overlap
+  validate :cannot_book_self_artpiece
 
   def total_price
     (end_date - start_date).to_i * artpiece.day_price
   end
+
+  def cannot_book_self_artpiece
+    if user_id == artpiece.user_id
+      errors.add(:user_id, "you are not allowed to book own artpiece, bad move")
+    end
+  end
+
 
   private
 
