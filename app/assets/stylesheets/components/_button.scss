@@ -45,6 +45,12 @@
   height: 30px;
   font-size: 12px;
   width: 100%;
+
+  &:hover {
+    background: $dark-beige;
+    border: $border;
+    color: $white;
+  }
 }
 
 .btn-danger-sm:not(:disabled):not(.disabled):hover {
