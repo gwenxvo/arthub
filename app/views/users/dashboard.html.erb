@@ -110,16 +110,33 @@
                         <li class="text-secondary opacity-75 d-inline-block text-truncate lh-0" style="max-width: 75%"><%= booked_artpiece.artist %></li>
                       </div>
                     </ul>
-                    <ul class="list-unstyled lh-sm">
-                      <div class="align-baseline">
-                        <div class=>
-                          <li>From <%= booking.start_date.strftime("%B %d") %></li>
-                        </div>
-                        <div>
-                          <li>To <%= booking.end_date.strftime("%B %d") %></li>
+                    <div class="row g-0">
+                    <%# Booking status container %>
+                      <div class=col-6>
+                        <ul class="list-unstyled lh-sm">
+                          <div class="align-baseline">
+                            <div class=>
+                              <li><% if booking.booking_status = false %>
+                                Pending..
+                                <% else %>
+                                Booking accepted.
+                                <% end %></li>
+                            </div>
+                          </div>
+                        </ul>
+                      </div>
+                    <%# Booking dates container %>
+                      <div class=col-6>
+                        <div class="dashboard-booking-dates-container">
+                          <div>
+                            <p class="m-0">From <%= booking.start_date.strftime("%B %d") %></p>
+                          </div>
+                          <div>
+                            <p class="m-0">To <%= booking.end_date.strftime("%B %d") %></p>
+                          </div>
                         </div>
                       </div>
-                    </ul>
+                    </div>
                   </div>
                 </div>
                 <%# BUTTONS %>
