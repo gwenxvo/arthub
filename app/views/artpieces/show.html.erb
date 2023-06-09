@@ -35,8 +35,10 @@
               <%= f.input :end_date, as: :date, label: 'End Date' %>
               <%= f.button :submit, booking.new_record? ? "Book now" : "Update Booking", class: "btn btn-primary" %>
 
-            <% end %>
-              <% if booking.persisted? %>
+      <% end %>
+
+
+            <% if booking.persisted? %>
               <div class="booking-confirmation">
                 <strong>Booking dates:</strong>
                 <% @artpiece.bookings.each do |booking| %>
@@ -51,19 +53,13 @@
               </div>
             <% end %>
           <%else%>
-             <p>Unfortunately as the owner of that artpice, you wont be able to book for yourself</p>
-                   <div class="container-edit-delete">
-        <%= link_to 'Edit artpiece', edit_artpiece_path(@artpiece), class: "btn btn-secondary" %>
-        <%= link_to 'Remove artpiece', artpiece_path(@artpiece),
-                    data: {turbo_method: :delete, turbo_confirm: "Do you really want to remove this artpiece?"}, class: "delete-none btn btn-danger" %>
-      </div>
+            <p>Unfortunately as the owner of that artpiece, you wont be able to book for yourself</p>
+            <div class="container-edit-delete">
+              <%= link_to 'Edit artpiece', edit_artpiece_path(@artpiece), class: "btn btn-secondary" %>
+              <%= link_to 'Remove artpiece', artpiece_path(@artpiece), data: {turbo_method: :delete, turbo_confirm: "Do you really want to remove this artpiece?"}, class: "delete-none btn btn-danger" %>
+            </div>
           <% end %>
-
-
-
-
       </div>
-
     </div>
   </div>
   <div class="container-review">
@@ -88,7 +84,7 @@
               <%= f.submit class: "btn btn-secondary" %>
           <% end %>
         <% else %>
-        <p>You can see what others thought of your artpiece, but sorry, no rating your own</p>
+          <p>You can see what others thought of your artpiece, but sorry, no rating your own</p>
         <% end %>
         </div>
       </div>

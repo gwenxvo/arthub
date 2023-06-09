@@ -4,7 +4,7 @@ class ArtpiecesController < ApplicationController
 
   def index
     @artpiece = Artpiece.new
-    @artpieces = params[:search].present? && params[:search][:query].present? ? Artpiece.search(params[:search][:query]) : Artpiece.all
+    @artpieces = params[:search].present? && params[:search][:query].present? ? Artpiece.where(id: Artpiece.search(params[:search][:query]).map {|artpiece| artpiece.id}) : Artpiece.all
     # raise
     # @artpieces = Artpiece.all
     @start_date = params[:start_date] || Date.today

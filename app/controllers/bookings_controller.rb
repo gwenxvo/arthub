@@ -1,11 +1,11 @@
 class BookingsController < ApplicationController
   before_action :set_artpiece, only: [:create, :update, :destroy]
-  before_action :set_booking, only: [:update, :destroy, :accept]
+  before_action :set_booking, only: [:update, :destroy, :accept, :decline]
 
   def create
     @booking = @artpiece.bookings.new(booking_params)
     @booking.user = current_user
-    @booking.booking_status = @artpiece.booked?(Date.current)
+    # @booking.booking_status = @artpiece.booked?(Date.current)
     if @booking.save
       redirect_to artpiece_path(@artpiece), notice: 'Booking was successfully created'
     else
@@ -28,11 +28,13 @@ class BookingsController < ApplicationController
 
   def accept
     @booking.booking_status = true
+    @booking.save
     redirect_to user_dashboard_path(current_user), notice: 'You accepted the booking.'
   end
 
   def decline
     @booking.booking_status = false
+    @booking.save
     redirect_to user_dashboard_path(current_user), notice: 'You declined the booking.'
   end
 

@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   # root "articles#index"
   get 'users/:id/dashboard', to: 'users#dashboard', as: :user_dashboard
 
-  resources :artpieces, except: :index do
+  resources :artpieces do
 
     collection do
       get :search
