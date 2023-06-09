@@ -6,7 +6,7 @@ class RatingsController < ApplicationController
     if @rating.save
       redirect_to artpiece_path(@artpiece)
     else
-      render :show, status: :unprocessable_entity
+      render "artpieces/show", status: :unprocessable_entity
     end
   end
 

@@ -1,6 +1,6 @@
 .container {
   margin-top: 80px;
-  margin-bottom: 80px;
+  margin-bottom: 120px;
 }
 
 .container-edit-form {
@@ -68,6 +68,10 @@
  }
 }
 
+.form-actions {
+  width: 300px;
+  margin: 50px auto;
+}
 
 
 
@@ -93,6 +97,10 @@
   display: flex;
   justify-content: space-between;
   align-items: baseline;
+
+  .fa-solid {
+    color: $red;
+  }
 }
 
 ul {
@@ -137,4 +145,20 @@ ul {
     text-decoration: none;
     color: $dark-beige;
   }
+}
+
+.btn-container {
+  display: flex;
+  flex-direction: row;
+  position: absolute;
+}
+
+.dashboard-booking-inv-text-container {
+  padding-left: 1px;
+}
+
+.dashboard-sections-title-containers {
+  border-bottom-style: solid;
+  border-width: thin;
+  border-color: $beige;
 }

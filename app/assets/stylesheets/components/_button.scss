@@ -36,13 +36,35 @@
     background: $dark-beige;
     border: $border;
     color: $white;
-  }
+}
 
-  .btn-danger-sm:not(:disabled):not(.disabled):hover {
-    background: $red;
+.btn-secondary-sm-dashboard:not(:disabled):not(.disabled), .btn-danger-sm:not(:disabled):not(.disabled) {
+  background-color: $white;
+  color: $black;
+  border: $border;
+  height: 30px;
+  font-size: 12px;
+  width: 100%;
+
+  &:hover {
+    background: $dark-beige;
     border: $border;
     color: $white;
   }
+}
+
+.btn-danger-sm:not(:disabled):not(.disabled):hover {
+  background: $red;
+  border: $border;
+  color: $white;
+}
+
+.btn-danger-sm-dashboard:not(:disabled):not(.disabled):hover {
+  background: $red;
+  border: $border;
+  color: $white;
+  width: 100%;
+}
 
 .btn-danger:not(:disabled):not(.disabled) {
   background-color: $white;
@@ -53,5 +75,19 @@
     background: $red;
     border: $border;
     color: $white;
+  }
+}
+
+.btn-banner:not(:disabled):not(.disabled) {
+  background-color: $dark-beige;
+  border: $border;
+  width: 20%;
+  color: $white;
+
+  &:hover {
+    background-image: url("https://images.unsplash.com/photo-1482881497185-d4a9ddbe4151?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=765&q=80");
+    border: 2px solid $dark-beige;
+    color: $black;
+    font-weight: 600;
   }
 }

@@ -1,8 +1,16 @@
-<div class="container">
+<div class="banner" style="background-image: linear-gradient(rgba(162, 121, 6, 0.2),rgba(162, 121, 6, 0.2)), url(https://images.unsplash.com/photo-1580136607993-fd598cf5c4f5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1380&q=80);">
+  <div class="container">
+    <h1>Rent the world's most exquisite art!</h1>
+    <p>Hosting a fancy dinner or want to impress your in-laws with fancy artpieces?</p>
+    <%= link_to "Rent an artpiece", root_path(anchor: "index"), class: "btn btn-banner" %>
+  </div>
+</div>
+
+<div class="container" id="index">
   <h1>All Artpieces</h1>
 
   <%# Algolia search %>
-  <%= simple_form_for :search, url: artpieces_path, method: "get" do |f| %>
+  <%= simple_form_for :search, url: artpieces_path, method: :get do |f| %>
     <%= f.input :query, input_html: {value: params[:query]}, placeholder: "Seek out your masterpiece", label: false%>
     <%= f.button :submit, "Search"%>
   <%end%>
@@ -10,33 +18,40 @@
   <div class="row">
       <% @artpieces.each do |artpiece| %>
         <div class="col-lg-4 col-sm-12 col-md-6 d-flex align-items-stretch">
-          <div class="card mb-2 border-0">
-            <div class=""><%= cl_image_tag artpiece.photos.first.key, :height=>416, :width=>416, crop: :fill, class: "object-fit-cover rounded-3" %></div>
+          <div class="card mb-5 border-0">
+            <% if artpiece.booked?(Date.current) %>
+              <div class=""><%= cl_image_tag artpiece.photos.first.key, :transformation => { :width => 416, :height=>416, :crop => "fill", :opacity => 20 }, class: "object-fit-cover rounded-3" %></div>
+            <% else %>
+              <div class=""><%= cl_image_tag artpiece.photos.first.key, :height=>416, :width=>416, crop: :fill, class: "object-fit-cover rounded-3" %></div>
+            <% end %>
             <div class="card-body p-0 h-25">
+              <div class="card-title-rating d-flex justify-content-between">
                 <p class="card-title m-0 lh-sm"><%= link_to artpiece.title, artpiece_path(artpiece), class:"text-decoration-none stretched-link text-dark fs-4 fw-normal" %></p>
+                <%# average rating %>
+                <%if artpiece.ratings.any? %>
+                  <p><i class="fa-solid fa-star"></i> <%= artpiece.ratings.average(:rating).to_f %></p>
+                <%else%>
+                  <p><i class="fa-regular fa-star"></i> None</p>
+                <% end %>
+              </div>
                 <div class="card-text">
                   <ul class="list-unstyled lh-sm" %>
-                    <li class="text-secondary opacity-75"><%= artpiece.description %></li>
                     <li class="text-secondary opacity-75"><%= artpiece.artist %></li>
+                    <li class="card-desc text-secondary opacity-75"><%= artpiece.description %></li>
                     <div class="container-price-av">
 
-                      <%# booking check by current day  %>
+                      <%# <% booking check by current day %>
                        <% if artpiece.booked?(Date.current) %>
-                         <li>This piece is already booked</li>
+                         <li><i class="fa-solid fa-circle"></i> Booked</li>
                         <% else %>
-                          <li>This piece is available</li>
+                          <li><i class="fa-regular fa-circle"></i> Available</li>
                         <% end %>
 
-                      <li class="mt-2 fw-medium fs-6 text-decoration-underline">$<%= artpiece.day_price %>/day </li>
+                      <li class="mt-2 fw-medium fs-6 text-decoration-underline">€<%= artpiece.day_price %>/day </li>
+
                     </div>
                   </ul>
 
-                  <%# average rating %>
-                  <%if artpiece.ratings.any? %>
-                    Average rating <%= artpiece.ratings.average(:rating).to_f %>
-                  <%else%>
-                    <p>Unrated</p>
-                  <% end %>
 
                 </div>
             </div>
@@ -47,7 +62,7 @@
 
 
 
-  <div class="container-create-form row mt-5 mb-20">
+  <div class="container-create-form row mt-5 mb-20" id="form-create">
     <div class="col-lg-5 col-sm-5 col-md-5 d-flex justify-content-around">
       <h4>Want to share your beautiful art with others?</h4>
     </div>

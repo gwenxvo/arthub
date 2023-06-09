@@ -8,23 +8,18 @@
   flex-grow: 0;
 }
 
-// .navbar-lewagon .navbar-brand img {
-//   width: 60px;
-//   height: 100px;
-//   object-fit: cover;
-// }
-
 .nav-title {
   font-size: 30px;
   font-weight: 600;
   text-decoration: none;
-  color: rgb(81, 81, 81)
+  color: $main-gray;
+  margin-left: 210px;
 }
 
 .fa-square {
   font-size: 45px;
   margin-left: 60px;
-  color: rgb(81, 81, 81)
+  color: $main-gray;
 }
 
 .avatar{
@@ -35,4 +30,10 @@
 
 .navbar-nav {
   align-items: center;
+}
+
+.nb-item {
+  text-decoration: none;
+  color: $main-gray;
+  padding: 0px 10px;
 }
