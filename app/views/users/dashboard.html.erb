@@ -33,6 +33,13 @@
                     <ul class="list-unstyled lh-sm">
                       <div class="align-baseline">
                         <div class=>
+                          <li><% if booking.booking_status = false %>
+                            Pending..
+                            <% else %>
+                            Booking accepted.
+                            <% end %></li>
+                        </div>
+                        <div class=>
                           <li>From <%= booking.start_date.strftime("%B %d") %></li>
                         </div>
                         <div>
@@ -92,7 +99,76 @@
     </div>
   </div>
 
+   <div class="row">
+    <div class="pb-3 mb-3">
+      <div class="m-2">Your received Bookings</div>
+      <%# Bookings Cards %>
+      <% @received_bookings.each do |booking| %>
+        <% booked_artpiece = @all_artpieces.find_by(id: booking.artpiece_id) %>
+        <div class="card">
+          <div class="row g-0">
+            <div class="col-sm-3 col-md-3">
+            <%# IMAGE DIV %>
+              <div class=""><%= cl_image_tag booked_artpiece.photos.first.key, :gravity=>"auto", :height=>150, :width=>300, :crop=>"thumb", class: "object-fit-cover rounded-1" %></div>
+            </div>
+            <div class="col-sm-9 col-md-9">
+            <%# INTERIOR DESCRIPTION AND BUTTONS DIV %>
+              <div class="row g-0">
+                <div class="col-sm-8 col-md-9">
+                  <div class="card-body pb-0 pt-0">
+                    <div>
+                      <p class="card-title m-0 lh-sm"><%= link_to booked_artpiece.title, artpiece_path(booked_artpiece), class:"text-decoration-none text-dark fs-4 fw-normal" %></p></h5>
+                    </div>
 
+                    <ul class="list-unstyled lh-sm">
+                      <div>
+                        <li class="text-secondary opacity-75 d-inline-block text-truncate m-0 lh-0" style="max-width: 100%"><%= booked_artpiece.description %></li>
+                      </div>
+                      <div>
+                        <li class="text-secondary opacity-75 d-inline-block text-truncate lh-0" style="max-width: 75%"><%= booked_artpiece.artist %></li>
+                      </div>
+                    </ul>
+
+                    <ul class="list-unstyled lh-sm">
+                      <div class="align-baseline">
+                        <div class=>
+                          <li>From <%= booking.start_date.strftime("%B %d") %></li>
+                        </div>
+                        <div>
+                          <li>To <%= booking.end_date.strftime("%B %d") %></li>
+                        </div>
+                      </div>
+
+                    </ul>
+
+                  </div>
+                </div>
+                <%# BUTTONS %>
+                <div class="col-sm-4 col-md-3">
+                  <div class="d-inline-block align-bottom">
+
+                    <div class="mt-2 mb-2">
+                      <%= link_to 'Accept', accept_booking_path(booking), class: "btn btn-secondary-sm-dashboard" %>
+                    </div>
+
+                    <div class="mt-2 mb-2">
+                      <%= link_to 'Decline', decline_booking_path(booking), class: "btn btn-secondary-sm-dashboard" %>
+                    </div>
+
+                  </div>
+
+
+
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      <% end %>
+
+    </div>
+
+  </div>
 
 </div>
 <%# => #<ActiveRecord::Associations::CollectionProxy

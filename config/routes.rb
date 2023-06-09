@@ -17,4 +17,7 @@ Rails.application.routes.draw do
     resources :ratings, only: [:create]
     resources :bookings, only: [:create, :update, :destroy]
   end
+
+  get "bookings/:id/accept", to: "bookings#accept", as: :accept_booking
+  get "bookings/:id/decline", to: "bookings#decline", as: :decline_booking
 end

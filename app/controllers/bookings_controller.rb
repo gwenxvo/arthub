@@ -1,6 +1,6 @@
 class BookingsController < ApplicationController
   before_action :set_artpiece, only: [:create, :update, :destroy]
-  before_action :set_booking, only: [:update, :destroy]
+  before_action :set_booking, only: [:update, :destroy, :accept]
 
   def create
     @booking = @artpiece.bookings.new(booking_params)
@@ -23,6 +23,16 @@ class BookingsController < ApplicationController
   def destroy
     @booking.destroy
     redirect_to artpiece_path(@artpiece), notice: 'Booking was successfully cancelled'
+  end
+
+  def accept
+    @booking.booking_status = true
+    redirect_to user_dashboard_path(current_user), notice: 'You accepted the booking.'
+  end
+
+  def decline
+    @booking.booking_status = false
+    redirect_to user_dashboard_path(current_user), notice: 'You declined the booking.'
   end
 
   private

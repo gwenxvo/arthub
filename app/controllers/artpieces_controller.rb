@@ -1,5 +1,5 @@
 class ArtpiecesController < ApplicationController
-  before_action :set_artpiece, only: %i[show edit update]
+  before_action :set_artpiece, only: %i[show edit update destroy]
   # include CloudinaryHelper
 
   def index
@@ -50,9 +50,8 @@ class ArtpiecesController < ApplicationController
   end
 
   def destroy
-    @artpiece = Artpiece.find(params[:id])
     @artpiece.destroy
-    redirect_to artpieces_path, status: :see_other
+    redirect_to root_path, status: :see_other
   end
 
   def search
